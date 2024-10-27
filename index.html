@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recruit CRM</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Styles for the logo section */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .logo-svg {
+      position: relative;
+      width: 60px;
+      height: 60px;
+    }
+
+    .logo-svg text {
+      font-family: Arial, sans-serif;
+      font-size: 42px; /* Increased font size for a bolder effect */
+      font-weight: bold;
+      fill: white;
+      stroke: #1070ca; /* Border color to create a hollow effect */
+      stroke-width: 0px; /* Increased stroke width for more boldness */
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      margin-left: 10px;
+      color: #1070ca;
+      font-weight: bold;
+    }
+
+    /* Button styles */
+    .social-signup-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      color: #555;
+      padding: 8px;
+      margin: 10px 0;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .social-signup-btn img {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <!-- Logo Section with SVG Path and Text -->
+  <div class="logo-container">
+    <!-- Beautifully designed SVG Icon with Path and Centered "r" -->
+    <svg class="logo-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+      <!-- Decorative path box -->
+      <path d="M30,1 A29,29 0 1,1 1,30 A29,29 0 1,1 30,1 Z" fill="#1070ca"/>
+      <!-- Hollow "r" text inside the SVG -->
+      <text x="30" y="35">r</text>
+    </svg>
+    <div class="logo-text">recruit crm</div>
+  </div>
+
+  <h2>Log In to Your Account</h2>
+  <p>To continue where you left off, please enter your details.</p>
+
+  <form class="login-form" onsubmit="login(event)">
+    <label for="email">Your Email</label>
+    <input type="email" id="email" required placeholder="Email">
+    
+    <label for="password">Your Password</label>
+    <input type="password" id="password" required placeholder="Password">
+    
+    <button type="submit">Log In</button>
+    <div class="login-links">
+      <a href="#">Forgot Password?</a>
+    </div>
+  </form>
+
+  <div class="signup-options">
+    <p>New to Recruit CRM? <a href="#">Sign up</a></p>
+    <button class="social-signup-btn" onclick="signUpWithLinkedIn()">
+      <img src="data:image/png;base64,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" alt="LinkedIn"> Import Profile from LinkedIn
+    </button>
+    <button class="social-signup-btn" onclick="signUpWithGoogle()">
+      <img src="data:image/png;base64,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" alt="Google"> Sign up with Google
+    </button>
+  </div>
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
